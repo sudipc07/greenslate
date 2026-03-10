@@ -266,6 +266,9 @@ section {
   width: 24px; height: 24px;
   color: var(--color-primary-light);
 }
+.logo-green {
+  color: var(--color-primary-light);
+}
 
 .nav-links {
   display: flex; align-items: center; gap: 40px;
