@@ -82,9 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             
-            // Updates CSS variables for the ambient hover glow
             card.style.setProperty('--mouse-x', `${x}px`);
             card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
+
+    // 7. Hero Parallax Grid Movement
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('mousemove', e => {
+            const x = (window.innerWidth / 2 - e.clientX) / 20;
+            const y = (window.innerHeight / 2 - e.clientY) / 20;
+            
+            hero.style.setProperty('--hero-x', x);
+            hero.style.setProperty('--hero-y', y);
+        });
+    }
 });

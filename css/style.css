@@ -292,20 +292,67 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 120px; /* Offset header */
+  padding-top: 120px;
   position: relative;
+  overflow: hidden;
+  perspective: 2000px; /* Enhanced depth */
 }
 
-/* Background glow specifically for hero */
-.hero::before {
+/* 3D Architectural Space Container */
+.hero-visual {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  transform-style: preserve-3d;
+}
+
+/* Base Grid Styles */
+.hero-visual::before,
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  background-image: 
+    linear-gradient(rgba(45, 140, 90, 0.25) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(45, 140, 90, 0.25) 1.5px, transparent 1.5px);
+  background-size: 100px 100px;
+  width: 200%; height: 200%;
+  top: -50%; left: -50%;
+  transition: transform 0.1s ease-out;
+}
+
+/* The Floor */
+.hero-visual::before {
+  transform: 
+    rotateX(82deg) /* Steeper angle for more perspective */
+    translateZ(-150px) /* Move floor down */
+    translate(calc(var(--hero-x, 0) * -1.5px), calc(var(--hero-y, 0) * -1.5px));
+  mask-image: linear-gradient(to top, black 20%, transparent 90%);
+  -webkit-mask-image: linear-gradient(to top, black 20%, transparent 90%);
+}
+
+/* The Wall */
+.hero-visual::after {
+  transform: 
+    rotateY(0deg)
+    translateZ(-600px) /* Deep back wall */
+    translate(calc(var(--hero-x, 0) * 1px), calc(var(--hero-y, 0) * 1px));
+  mask-image: linear-gradient(to bottom, black 0%, transparent 60%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 60%);
+  opacity: 0.5;
+}
+
+/* Soft glow to blend the room */
+.hero-content::before {
   content: '';
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 60vw; height: 60vw;
-  background: radial-gradient(circle, rgba(45, 140, 90, 0.15) 0%, transparent 60%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(45, 140, 90, 0.15) 0%, transparent 70%);
   z-index: -1;
-  filter: blur(60px);
+  filter: blur(80px);
+  pointer-events: none;
 }
 
 .hero-content {
