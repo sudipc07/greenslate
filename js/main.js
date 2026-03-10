@@ -87,15 +87,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. Hero Parallax Grid Movement
+    // 7. Hero Parallax Grid Movement (Desktop & Mobile)
     const hero = document.querySelector('.hero');
     if (hero) {
+        // Desktop: Mouse Move
         window.addEventListener('mousemove', e => {
-            const x = (window.innerWidth / 2 - e.clientX) / 20;
-            const y = (window.innerHeight / 2 - e.clientY) / 20;
-            
-            hero.style.setProperty('--hero-x', x);
-            hero.style.setProperty('--hero-y', y);
+            if (window.matchMedia('(pointer: fine)').matches) {
+                const x = (window.innerWidth / 2 - e.clientX) / 20;
+                const y = (window.innerHeight / 2 - e.clientY) / 20;
+                hero.style.setProperty('--hero-x', x);
+                hero.style.setProperty('--hero-y', y);
+            }
         });
+
+        // Mobile: Scroll-based Parallax fallback
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (scrolled < window.innerHeight) {
+                hero.style.setProperty('--hero-y', scrolled / 15);
+            }
+        });
+
+        // Mobile: Gyroscope (if available)
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', (e) => {
+                // beta is front-to-back tilt (-180 to 180)
+                // gamma is left-to-right tilt (-90 to 90)
+                if (e.beta && e.gamma) {
+                    const x = e.gamma / 2; 
+                    const y = (e.beta - 45) / 2; // Subtracting ~45 for natural holding angle
+                    hero.style.setProperty('--hero-x', x);
+                    hero.style.setProperty('--hero-y', y);
+                }
+            }, true);
+        }
     }
 });
