@@ -103,12 +103,13 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: clamp(48px, 6vw, 84px);
-  line-height: 1.05;
+  line-height: 1.2;
   font-weight: 700;
   background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  padding-bottom: 0.05em; /* Prevent descender clipping */
 }
 
 h2 {
