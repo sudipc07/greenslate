@@ -316,8 +316,8 @@ section {
   content: '';
   position: absolute;
   background-image: 
-    linear-gradient(rgba(45, 140, 90, 0.25) 1.5px, transparent 1.5px),
-    linear-gradient(90deg, rgba(45, 140, 90, 0.25) 1.5px, transparent 1.5px);
+    linear-gradient(rgba(45, 140, 90, 0.4) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(45, 140, 90, 0.4) 2px, transparent 2px);
   background-size: 100px 100px;
   width: 200%; height: 200%;
   top: -50%; left: -50%;
@@ -342,7 +342,7 @@ section {
     translate(calc(var(--hero-x, 0) * 1px), calc(var(--hero-y, 0) * 1px));
   mask-image: linear-gradient(to bottom, black 0%, transparent 60%);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 60%);
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 /* Soft glow to blend the room */
