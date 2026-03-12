@@ -263,6 +263,13 @@ section {
   color: var(--color-text-main);
   text-decoration: none;
   letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+}
+
+.logo-mark {
+  margin-right: 12px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
 }
 
 .logo-green {
