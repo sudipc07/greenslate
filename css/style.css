@@ -267,9 +267,15 @@ section {
   align-items: center;
 }
 
-.logo-mark {
-  margin-right: 12px;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+.logo-img {
+  height: 32px;
+  width: auto;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.05);
 }
 
 .logo-green {
