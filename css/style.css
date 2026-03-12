@@ -258,14 +258,27 @@ section {
 }
 
 .logo {
-  font-size: 24px; font-weight: 700;
+  font-size: 24px;
+  font-weight: 700;
   color: var(--color-text-main);
-  display: flex; align-items: center; gap: 8px;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.logo-icon {
-  width: 24px; height: 24px;
-  color: var(--color-primary-light);
+
+.logo-mark {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
+
+.logo:hover .logo-mark {
+  transform: scale(1.05);
+}
+
 .logo-green {
   color: var(--color-primary-light);
 }
