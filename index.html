@@ -111,8 +111,8 @@
                     <div class="bento-item glass-panel bento-service wide" data-aos="fade-up" data-aos-delay="500">
                         <div class="bento-content">
                             <i data-lucide="shield-check" class="bento-icon"></i>
-                            <h3>Governance & Compliance</h3>
-                            <p>Transparent tracking for PF, ESI, and labor laws. We transform regulatory requirements into a digital competitive advantage for your corporate pitches.</p>
+                            <h3>Contract Governance</h3>
+                            <p>Bridge the gap between contract commitments and on-ground service delivery. Our contract governance solutions align KPIs, SLAs, and operational processes to ensure compliance, transparency, and reduced commercial risk.</p>
                         </div>
                     </div>
 
@@ -151,10 +151,36 @@
         <section class="cta-section" id="contact">
             <div class="container" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="cta-box glass-panel">
-                    <div class="badge" style="margin: 0 auto 24px;">Initialize Partnership</div>
-                    <h2>Command your market presence.</h2>
-                    <p>Upgrade from legacy software and generic web templates. Deploy an infrastructure built strictly for the modern FM enterprise.</p>
-                    <a href="mailto:hello@greenslate.in" class="btn btn-primary" style="padding: 20px 48px; font-size: 18px;">Initiate Contact</a>
+                    <div class="badge" style="margin: 0 auto 24px;">Lead Capture</div>
+                    <h2>Request a Proposal</h2>
+                    <p>Enter your details below and our team will get back to you with a custom digital strategy for your FM corporation.</p>
+                    
+                    <form action="https://formspree.io/f/xlgpnejk" method="POST" class="proposal-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Corporate Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="company" placeholder="Company Name" required>
+                            </div>
+                            <div class="form-group">
+                                <select name="service" required>
+                                    <option value="" disabled selected>Select Service</option>
+                                    <option value="web-architecture">Web Architecture</option>
+                                    <option value="workforce-management">Workforce Management</option>
+                                    <option value="compliance">Contract Governance</option>
+                                    <option value="training">Training Orchestration</option>
+                                </select>
+                            </div>
+                            <div class="form-group full-width">
+                                <textarea name="message" placeholder="Briefly describe your requirements..." rows="4" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large" style="margin-top: 24px; width: 100%;">Initialize Request</button>
+                    </form>
                 </div>
             </div>
         </section>
