@@ -53,7 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const [entry] = entries;
             if (entry.isIntersecting && !hasCounted) {
                 statNumbers.forEach(stat => {
-                    const target = parseInt(stat.getAttribute('data-target'));
+                    const target = parseInt(stat.getAttribute('data-target'), 10);
+                    if (Number.isNaN(target)) {
+                        return;
+                    }
                     const duration = 2000;
                     const increment = target / (duration / 16);
                     let current = 0;
@@ -121,5 +124,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }, true);
         }
+    }
+
+    // 8. Report form async submit state
+    const reportForm = document.getElementById('reportForm');
+    const formSuccess = document.getElementById('formSuccess');
+    const formFeedback = document.getElementById('formFeedback');
+    const reportSubmit = document.getElementById('reportSubmit');
+
+    if (reportForm && formSuccess && formFeedback && reportSubmit) {
+        reportForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            reportSubmit.disabled = true;
+            reportSubmit.textContent = 'Sending...';
+            formFeedback.hidden = true;
+
+            try {
+                const response = await fetch(reportForm.action, {
+                    method: reportForm.method,
+                    body: new FormData(reportForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Form submission failed');
+                }
+
+                reportForm.reset();
+                reportForm.hidden = true;
+                formSuccess.hidden = false;
+            } catch (error) {
+                reportSubmit.disabled = false;
+                reportSubmit.textContent = 'Send Me the Report';
+                formFeedback.hidden = false;
+            }
+        });
     }
 });
