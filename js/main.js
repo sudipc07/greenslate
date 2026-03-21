@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 8. Report form async submit state
+    // 8. Contact form async submit state
     const reportForm = document.getElementById('reportForm');
     const formSuccess = document.getElementById('formSuccess');
     const formFeedback = document.getElementById('formFeedback');
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formSuccess.hidden = false;
             } catch (error) {
                 reportSubmit.disabled = false;
-                reportSubmit.textContent = 'Send Me the Report';
+                reportSubmit.textContent = 'Send Enquiry';
                 formFeedback.hidden = false;
             }
         });
